@@ -5,7 +5,7 @@ for index in range(number):
     values = sys.stdin.readline().rstrip().split('X')
     dictionary = {}
     score = 0
-    for length in filter(lambda value: value > 0, map(len, values)):
+    for length in filter(None, map(len, values)):
         if length in dictionary:
             local_score = dictionary[length]
         else:
