@@ -1,20 +1,15 @@
-import io, sys
+import sys
 import time
 
 start = time.time()
 
-lines = sys.stdin.readlines()
-n = int(lines[0])
-added = set(lines[1:n+1])
-# added.remove(lines[0])
+input = sys.stdin.readline
+n = int(input())
+added = { input().rstrip() for _ in range(n) }
 words = list(added)
 words.sort(key=lambda x :(len(x), x))
 
-buffer = io.StringIO()
-for word in words:
-    buffer.write(f'{word.rstrip()}\n')
-
-print(buffer.getvalue().rstrip())
+sys.stdout.write('\n'.join(words))
 
 end = time.time()
 print(f"{(end - start)*1000:.5f} ms")
